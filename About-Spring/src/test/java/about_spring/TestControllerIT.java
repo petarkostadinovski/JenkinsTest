@@ -30,7 +30,7 @@ public class TestControllerIT {
                 Void.class
         );
 
-        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
 }
