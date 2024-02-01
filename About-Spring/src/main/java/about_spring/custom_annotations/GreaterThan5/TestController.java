@@ -12,4 +12,9 @@ public class TestController {
 
     }
 
+    @GetMapping
+    void test() {
+
+    }
+
 }
