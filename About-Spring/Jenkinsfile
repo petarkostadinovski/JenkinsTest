@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage("checkout") {
+            steps{
+                git branch: 'master', url: 'https://github.com/petarkostadinovski/JenkinsTest'
+            }
+        }
+
+        stage("build") {
+            steps{
+                sh "cd About-Spring; ./mvnw package"
+            }
+        }
+        
+        stage("capture") {
+            steps{
+                archiveArtifacts artifacts: '**/target/*.jar', followSymlinks: false
+                junit '**/target/surefire-reports/TEST*.xml'   
+            }
+        }
+    }
+} 
