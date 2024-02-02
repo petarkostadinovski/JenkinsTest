@@ -2,11 +2,6 @@ pipeline {
     agent any
     
     stages {
-        stage("checkout") {            steps{
-                git branch: 'master', url: 'https://github.com/petarkostadinovski/JenkinsTest'
-            }
-        }
-
         stage("build") {
             steps{
                 sh "cd About-Spring; ./mvnw package"
